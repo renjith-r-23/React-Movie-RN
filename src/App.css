@@ -10,11 +10,13 @@
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
+  --primary-color: #3498db; /* Professional blue color */
+  --secondary-color: #2ecc71; /* Professional green color */
 }
 
 body {
-  font-family: var(--font-roboto);
-  background-color: #212426;
+  font-family: var(--font-raleway);
+  background-color: #f0f0f0; /* Light gray background */
 }
 
 .app {
@@ -31,8 +33,8 @@ h1 {
   letter-spacing: 0.9px;
   background: linear-gradient(
     90deg,
-    rgba(249, 211, 180, 1) 0%,
-    rgba(249, 211, 180, 0) 100%
+    var(--primary-color) 0%,
+    var(--primary-color) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -41,18 +43,17 @@ h1 {
 }
 
 .search {
-  width: 71%;
-  margin: 4rem 0 2rem;
+  width: 50%; /* Reduce search width for better responsiveness */
+  margin: 2rem 0; /* Adjust margin for better spacing */
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 1.5rem 1.75rem;
+  padding: 1.5rem;
   border-radius: 3rem;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  background: #fff; /* White background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box-shadow */
 }
 
 .search input {
@@ -61,11 +62,11 @@ h1 {
   font-size: 1.5rem;
   font-family: var(--font-raleway);
   font-weight: 500;
-  padding-right: 1rem;
+  padding: 1rem;
 
   outline: none;
-  color: #a1a1a1;
-  background: #1f2123;
+  color: #333; /* Dark text color */
+  background: #f0f0f0; /* Light gray background */
 }
 
 .search img {
@@ -73,22 +74,6 @@ h1 {
   height: 35px;
   cursor: pointer;
 }
-
-/* .search button {
-  padding: 20px 40px;
-  border-radius: 0.5rem;
-  margin-left: 15px;
-  color: #a1a1a1;
-  font-family: var(--font-raleway);
-  font-weight: 900;
-  letter-spacing: 0.75px;
-  font-size: 1.25rem;
-  cursor: pointer;
-
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-} */
 
 .empty {
   width: 100%;
@@ -101,7 +86,7 @@ h1 {
 
 .empty h2 {
   font-size: 1.25rem;
-  color: #f9d3b4;
+  color: #555; /* Dark gray text color */
   font-family: var(--font-raleway);
 }
 
@@ -118,88 +103,47 @@ h1 {
 .movie {
   width: 310px;
   height: 460px;
-  margin: 1.5rem;
+  margin: 1rem;
 
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   border: none;
 
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
+  box-shadow: 0px 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-.movie div:nth-of-type(1) {
-  position: absolute;
-  padding: 16px;
-  width: 100%;
-  opacity: 0;
-  top: 0;
-  color: #f9d3b4;
-}
-
-.movie:hover {
-  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05, 1.05);
-}
-
-.movie div:nth-of-type(2) {
-  width: 100%;
-  height: 100%;
-}
-
-.movie div:nth-of-type(2) img {
-  height: 100%;
-  width: 100%;
-}
-
+/* Additional styling for professional look */
 .movie div:nth-of-type(3) {
-  z-index: 2;
-  background-color: #343739;
-  padding: 16px 24px 24px 24px;
-
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  background-color: var(--secondary-color); /* Use the secondary color as background */
 }
 
 .movie div:nth-of-type(3) span {
-  font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 2px;
-  font-weight: 500;
-  color: #f0f0f0;
+  color: #fff; /* White text color */
 }
 
 .movie div:nth-of-type(3) h3 {
-  margin-top: 5px;
-  font-family: "Roboto Slab", serif;
-  color: #f9d3b4;
+  color: #fff; /* White text color */
+}
+
+/* Hover effect modifications */
+.movie:hover {
+  box-shadow: 0px 14px 12px -8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .movie:hover div:nth-of-type(2) {
-  height: 100%;
-  opacity: 0.3;
+  opacity: 0.9; /* Slightly more visible on hover */
 }
 
-.movie:hover div:nth-of-type(3) {
-  background-color: transparent;
-}
-
-.movie:hover div:nth-of-type(1) {
-  opacity: 1;
-}
 @media screen and (max-width: 600px) {
   .app {
-    padding: 4rem 2rem;
+    padding: 2rem;
   }
 
   .search {
-    padding: 1rem 1.75rem;
-    width: 100%;
+    width: 100%; /* Full width on small screens */
   }
 
   .search input {
@@ -214,7 +158,7 @@ h1 {
 
 @media screen and (max-width: 400px) {
   .app {
-    padding: 4rem 1rem;
+    padding: 1rem;
   }
 
   h1 {
@@ -226,7 +170,7 @@ h1 {
   }
 
   .movie {
-    width: "100%";
+    width: 100%; /* Full width on very small screens */
     margin: 1rem;
   }
 }
